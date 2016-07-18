@@ -1,4 +1,4 @@
-# BATTLECODE
+# BATTLECODES
 ---
 
 ## MVP
