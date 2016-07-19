@@ -14,7 +14,7 @@ io.on('connection', function(socket){
     var roomID = 1;
 
     socket.join(roomID, function(){
-      socket.broadcast.emit('new room', roomID);
+      socket.emit('new room', roomID);
 
       var game = {
         id: roomID,
@@ -29,8 +29,7 @@ io.on('connection', function(socket){
   socket.on('joinGame', function(roomID){
     if (socket.adapter.rooms[roomID].length < 2) {
       socket.join(roomID, function(){
-        socket.broadcast.emit('player joined', roomID);
-
+        socket.emit('player joined', roomID);
         socket.adapter.rooms[roomID].game.opponent = socket.id;
       });
     }

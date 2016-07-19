@@ -1,25 +1,22 @@
 (function(exports){
-  function init() {
-    console.log('hi');
 
-    var socket = io();
+  var socket = io();
 
-    socket.on('new room', function(data){
-      console.log('Room available: ' + data);
-    });
+  socket.on('new room', function(data){
+    console.log('Room available: ' + data);
+  });
 
-    socket.on('player joined', function(data){
-      console.log('A new player joined room ' + data);
-    });
-  }
+  socket.on('player joined', function(data){
+    console.log('A new player joined room ' + data);
+  });
 
-  function hostGame(challengeID){
-    socket.emit('hostGame', challengeID);
-  }
+  document.getElementById('hostButton').onclick = function(){
+    socket.emit('hostGame', 5);
+  };
 
-  function joinGame(roomID){
-    socket.emit('joinGame', roomID);
-  }
+  document.getElementById('joinButton').onclick = function(){
+    socket.emit('joinGame', 1);
+  };
 
-  exports.init = init;
+  exports.init = socket;
 })(this);

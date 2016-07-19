@@ -7,18 +7,17 @@
   <body>
     Hallo world
 
-    <button type="button" name="button" onclick="hostGame(404)">
+    <button type="button" name="button" id="hostButton">
       HOST GAME
     </button>
 
-    <button type="button" name="button" onclick="joinGame(1)">
+    <button type="button" name="button" id="joinButton">
       JOIN GAME (room 1)
     </button>
 
+    <div id="text"></div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="scripts/main.js"></script>
-    <script type="text/javascript">
-    init();
-    </script>
   </body>
 </html>
