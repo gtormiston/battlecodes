@@ -1,15 +1,15 @@
 ;(function(exports){
-  
+
   function test(solution, expectations){
     var pass = true;
     var results = [];
 
     for (var i = 0; i < expectations.length; i++) {
-      var solutionOutput = solution(expectations[i][0]);
-      if (solutionOutput !== expectations[i][1]) {
+      var solutionOutput = solution(expectations[i].testInput);
+      if (solutionOutput !== expectations[i].expectedOutput) {
         pass = false;
       }
-      expectations[i].push(solutionOutput);
+      expectations[i].actualOutput = solutionOutput;
       results.push(expectations[i]);
     }
 
@@ -17,7 +17,7 @@
       pass: pass,
       results: results
     };
-  
+
   };
 
   exports.test = test;

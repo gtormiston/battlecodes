@@ -5,18 +5,34 @@ describe('test', function() {
 
 var doubler = function(n) { return n * 2 };
 var brokenDoubler = function(n) { return n * 3 };
+var testCases = [{ testInput: 2,
+                   expectedOutput: 4},
+                 { testInput: 3,
+                   expectedOutput: 6}];
 
   it('correct solution returns appropriate object', function() {
-    expect(test(doubler, [[2,4],[3,6]])).to.eql({
+    expect(test(doubler, testCases)).to.eql({
       pass: true,
-      results: [[2,4,4],[3,6,6]]
+      results: [ { testInput: 2,
+                   expectedOutput: 4,
+                   actualOutput: 4 },
+
+                 { testInput: 3,
+                   expectedOutput: 6,
+                   actualOutput: 6 } ]
     })
   });
 
   it('incorrect solution returns appropriate object', function() {
-    expect(test(brokenDoubler, [[2,4],[3,6]])).to.eql({
+    expect(test(brokenDoubler, testCases)).to.eql({
       pass: false,
-      results: [[2,4,6],[3,6,9]]
+      results: [ { testInput: 2,
+                   expectedOutput: 4,
+                   actualOutput: 6 },
+
+                 { testInput: 3,
+                   expectedOutput: 6,
+                   actualOutput: 9 } ]
     })
   });
 });
