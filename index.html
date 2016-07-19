@@ -7,13 +7,23 @@
   <body>
     Hallo world
 
+    <button type="button" name="button" onclick="startGame()">
+      START GAME
+    </button>
+
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript">
     var socket = io();
 
     socket.on('test message', function(data){
-      console.log(data.test);
+      console.log(data);
     });
+
+    function startGame(){
+      // console.log('button clicked');
+      // console.log(socket);
+      socket.emit('startGame', socket.id);
+    }
 
     </script>
   </body>
