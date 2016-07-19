@@ -16,25 +16,9 @@
     </button>
 
     <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts/main.js"></script>
     <script type="text/javascript">
-    var socket = io();
-
-    socket.on('new room', function(data){
-      console.log('Room available: ' + data);
-    });
-
-    socket.on('player joined', function(data){
-      console.log('A new player joined room ' + data);
-    });
-
-    function hostGame(challengeID){
-      socket.emit('hostGame', challengeID);
-    }
-
-    function joinGame(roomID){
-      socket.emit('joinGame', roomID);
-    }
-
+    init();
     </script>
   </body>
 </html>
