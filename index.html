@@ -7,22 +7,32 @@
   <body>
     Hallo world
 
-    <button type="button" name="button" onclick="startGame()">
-      START GAME
+    <button type="button" name="button" onclick="hostGame(404)">
+      HOST GAME
+    </button>
+
+    <button type="button" name="button" onclick="joinGame(1)">
+      JOIN GAME (room 1)
     </button>
 
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript">
     var socket = io();
 
-    socket.on('test message', function(data){
-      console.log(data);
+    socket.on('new room', function(data){
+      console.log('Room available: ' + data);
     });
 
-    function startGame(){
-      // console.log('button clicked');
-      // console.log(socket);
-      socket.emit('startGame', socket.id);
+    socket.on('player joined', function(data){
+      console.log('A new player joined room ' + data);
+    });
+
+    function hostGame(challengeID){
+      socket.emit('hostGame', challengeID);
+    }
+
+    function joinGame(roomID){
+      socket.emit('joinGame', roomID);
     }
 
     </script>
