@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var test = require('../app/lib/testing-engine').test;
+var test = require('../../app/lib/testing-engine').test;
 
 describe('test', function() {
 

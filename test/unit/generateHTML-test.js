@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var generateHTML = require('../app/lib/generateHTML').generateHTML;
+var generateHTML = require('../../app/lib/generateHTML').generateHTML;
 
 describe('display', function() {
 
@@ -12,7 +12,7 @@ var inputObject = { pass: true,
                                  expectedOutput: 6,
                                  actualOutput: 6 } ]
                   };
-                                 
+
 var outputHTML = "<h3>2/2 tests passed</h3>" +
                   "<ul>" +
                   "<li>Expected function(2) to return 4, got 4</li>" +
