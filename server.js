@@ -17,7 +17,7 @@ io.on('connection', function(socket){
         id: roomID,
         host: socket.id,
         challenge: challengeID
-      }
+      };
 
       socket.adapter.rooms[roomID].game = game;
     });

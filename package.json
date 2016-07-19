@@ -7,9 +7,13 @@
     "express": "^4.14.0",
     "socket.io": "^1.4.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "socket.io-client": "^1.4.8"
+  },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha --reporter spec --recursive -R nyan"
   },
   "repository": {
     "type": "git",
