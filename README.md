@@ -71,3 +71,7 @@ I want to see my opponent’s progress
 + Cheat detection
 + Scoring
 + Sign in / homepage
++ Multiple rooms (concurrent games)
++ Host public or private games
++ Handle and display submission error; currently left uncaught
++ Syntax highlighting
