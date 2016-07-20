@@ -7,7 +7,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.use(express.static('public'));
+app.use(express.static('app/public'));
 
 io.on('connection', function(socket){
   socket.on('hostGame', function(challengeID){
