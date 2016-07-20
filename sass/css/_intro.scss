@@ -1,0 +1,22 @@
+$font: Helvetica, sans-serif;
+$primary-color: #333;
+
+html, body {
+  font: $font;
+  color: $primary-color;
+  height: 100%;
+}
+
+.main {
+  background: red;
+  height: 100%;
+  float: left;
+  width: 75%;
+}
+
+.sidebar {
+  background: green;
+  height: 100%;
+  float: left;
+  width: 25%;
+}

@@ -2,10 +2,21 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var sassMiddleware = require('node-sass-middleware');
+var path = require('path');
+var srcPath = __dirname + '/sass';
+var destPath = __dirname + '/public';
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
+
+app.use(sassMiddleware({
+    src: srcPath,
+    dest: destPath,
+    debug :true,
+    outputStyle: 'compressed'
+  }));
 
 app.use(express.static('public'));
 
