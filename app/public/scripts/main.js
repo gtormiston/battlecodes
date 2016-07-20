@@ -3,7 +3,7 @@
   var socket = io();
 
   socket.on('new room', function(data){
-    $('#notices').text('Share the room ID with your friend to start playing! ' + data.roomID);
+    $('#loading-messages').text('Share the room ID with your friend to start playing! ' + data.roomID);
   });
 
   socket.on('roomsAvailable', function(data){

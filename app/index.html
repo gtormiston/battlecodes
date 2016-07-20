@@ -5,21 +5,23 @@
     <title></title>
   </head>
   <body>
-    Hallo world
 
-    <button type="button" name="button" id="hostButton">
-      HOST GAME
-    </button>
+    <div class='intro-container' id='intro'>
+      <button type="button" name="button" id="hostButton">
+        HOST GAME
+      </button>
 
-    <div id="joinButtons">
-
+      <div id="joinButtons"><!-- New room buttons will appear here --></div>
     </div>
 
-    <!-- <button type="button" name="button" id="joinButton">
-      JOIN GAME (room 1)
-    </button> -->
+    <div class='game-play-container' id='game-play'>
+      <!-- This contains the main screen where the game happens -->
+    </div>
 
-    <div id="notices"></div>
+    <div class='loading-container' id="loading-messages">
+      <!-- This contains the waiting for players to join overlay -->
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="scripts/main.js"></script>
