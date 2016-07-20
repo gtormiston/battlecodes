@@ -9,12 +9,28 @@ app.get('/', function(req, res){
 
 app.use(express.static('app/public'));
 
+
 io.on('connection', function(socket){
+  var filteredRooms = [];
+
+  for (room in socket.adapter.rooms){
+    if (room.match(/^room/)){
+      filteredRooms.push(room);
+    }
+  }
+
+  socket.emit('roomsAvailable', { rooms: filteredRooms });
+
   socket.on('hostGame', function(data){
-    var roomID = 1;
+    var roomID = 'room-' + Math.floor(Math.random() * 1000);
+    // var roomID = 'room-' + 1;
 
     socket.join(roomID, function(){
       socket.emit('new room', { roomID: roomID });
+
+      filteredRooms.push(roomID);
+
+      socket.broadcast.emit('roomsAvailable', { rooms: filteredRooms });
 
       var game = {
         id: roomID,
