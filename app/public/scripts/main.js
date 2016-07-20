@@ -3,20 +3,20 @@
   var socket = io();
 
   socket.on('new room', function(data){
-    console.log('Room available: ' + data);
+    $('#notices').text('Share the room ID with your friend to start playing! ' + data.roomID);
   });
 
-  socket.on('player joined', function(data){
-    console.log('A new player joined room ' + data);
+  // socket.on('player joined', function(data){
+  //   console.log('A new player joined room ' + data.challengeID);
+  // });
+
+  $('#hostButton').click(function(){
+    socket.emit('hostGame', { challengeID: 5 });
   });
 
-  document.getElementById('hostButton').onclick = function(){
-    socket.emit('hostGame', 5);
-  };
-
-  document.getElementById('joinButton').onclick = function(){
-    socket.emit('joinGame', 1);
-  };
+  $('#joinButton').click(function(){
+    socket.emit('joinGame', { roomID: 1 });
+  });
 
   exports.init = socket;
 })(this);

@@ -10,27 +10,27 @@ app.get('/', function(req, res){
 app.use(express.static('app/public'));
 
 io.on('connection', function(socket){
-  socket.on('hostGame', function(challengeID){
+  socket.on('hostGame', function(data){
     var roomID = 1;
 
     socket.join(roomID, function(){
-      socket.emit('new room', roomID);
+      socket.emit('new room', { roomID: roomID });
 
       var game = {
         id: roomID,
         host: socket.id,
-        challenge: challengeID
+        challenge: data.challengeID
       };
 
       socket.adapter.rooms[roomID].game = game;
     });
   });
 
-  socket.on('joinGame', function(roomID){
-    if (socket.adapter.rooms[roomID].length < 2) {
-      socket.join(roomID, function(){
-        socket.emit('player joined', roomID);
-        socket.adapter.rooms[roomID].game.opponent = socket.id;
+  socket.on('joinGame', function(data){
+    if (socket.adapter.rooms[data.roomID].length < 2) {
+      socket.join(data.roomID, function(){
+        // socket.emit('player joined', { roomID: data.roomID });
+        socket.adapter.rooms[data.roomID].game.opponent = socket.id;
       });
     }
     else {
