@@ -1,9 +1,11 @@
 (function(exports){
 
+  $('#content').html($('#intro-template').html());
+
   var socket = io();
 
   socket.on('new room', function(data){
-    $('#loading-messages').text('Just waiting for opponent to join' + data.roomID);
+    $('#content').html($('#loading-template').html());
   });
 
   socket.on('roomsAvailable', function(data){
@@ -11,6 +13,10 @@
     for (var i = 0; i < data.rooms.length; i++){
       $('#joinButtons').append('<button class="js-join-button">' + data.rooms[i] + '</button>');
     }
+  });
+
+  socket.on('player joined', function(){
+    $('#content').html($('#game-template').html());
   });
 
   $('#hostButton').click(function(){

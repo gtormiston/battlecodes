@@ -45,7 +45,7 @@ io.on('connection', function(socket){
   socket.on('joinGame', function(data){
     if (socket.adapter.rooms[data.roomID].length < 2) {
       socket.join(data.roomID, function(){
-        // socket.emit('player joined', { roomID: data.roomID });
+        io.to(data.roomID).emit('player joined');
         socket.adapter.rooms[data.roomID].game.opponent = socket.id;
       });
     }
