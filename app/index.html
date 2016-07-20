@@ -6,37 +6,44 @@
     <link rel="stylesheet" href="/css/main.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <div class="main">
-
       <header>
         <div class='brand'>Battlecodes</div>
       </header>
 
-      <div class='intro-container' id='intro'>
-        <h2>Start a new game</h2>
+      <div id="content" class='main'>
+        <!-- Main wrapper for visible elements -->
+      </div>
+      <div class='sidebar'>
+        <nav>
+          <ul>
+            <li><a href="#">Instructions</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    <script id="intro-template" type="text/template">
+      <div class='intro-container'>
         <button type="button" name="button" id="hostButton">
           HOST GAME
         </button>
-      </div>
 
-      <div class='game-play-container' id='game-play'>
+        <div id="joinButtons"><!-- New room buttons will appear here --></div>
+      </div>
+    </script>
+
+    <script id="game-template" type="text/template">
+      <div class='game-play-container'>
+        Submit solution
         <!-- This contains the main screen where the game happens -->
       </div>
+    </script>
 
-      <div class='loading-container' id="loading-messages">
+    <script id="loading-template" type="text/template">
+      <div class='loading-container'>
+        Just waiting for opponent to join
         <!-- This contains the waiting for players to join overlay -->
       </div>
-  </div>
-    <div class='sidebar'>
-      <nav>
-        <ul>
-          <li><a href="#">Instructions</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </nav>
-      <div id="joinButtons">
-        <h2>Join a game</h2><!-- New room buttons will appear here --></div>
-    </div>
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
