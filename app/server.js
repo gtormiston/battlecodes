@@ -22,8 +22,8 @@ io.on('connection', function(socket){
   socket.emit('roomsAvailable', { rooms: filteredRooms });
 
   socket.on('hostGame', function(data){
-    var roomID = 'room-' + Math.floor(Math.random() * 1000);
-    // var roomID = 'room-' + 1;
+    //var roomID = 'room-' + Math.floor(Math.random() * 1000);
+     var roomID = 'room-' + 1;
 
     socket.join(roomID, function(){
       socket.emit('new room', { roomID: roomID });

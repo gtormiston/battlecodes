@@ -17,28 +17,18 @@ describe('scaffold test', function(){
   before(function(next){
     opponentBrowser.visit('/', next);
   });
+  
+  it('has no join button if a game is not hosted', function(){
+    expect(opponentBrowser.text()).to.not.contain('room-1');
+  });
 
   it('user can host generate a room code', function(done){
     hostBrowser.pressButton('HOST GAME');
 
     setTimeout(function(){
       expect(hostBrowser.text()).to.contain('Share the room ID with your friend to start playing! room-1');
-      done();
-    }, 1000);
-  });
-
-  it('second browser works', function(){
-    expect(opponentBrowser.text()).to.contain('Hallo');
-  });
-
-  it('has no join button if a game is not hosted', function(){
-    expect(opponentBrowser.text()).to.not.contain('JOIN GAME');
-  });
-
-  it('has a join button if a game is hosted', function(done){
-    hostBrowser.pressButton('HOST GAME');
-    setTimeout(function(){
       expect(opponentBrowser.text()).to.contain('room-1');
+      expect(hostBrowser.text('#joinButtons')).to.not.contain('room-1');
       done();
     }, 1000);
   });
