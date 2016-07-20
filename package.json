@@ -2,9 +2,18 @@
   "name": "battlecodes",
   "version": "0.0.1",
   "description": "race to solve a kata first",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "mocha test/unit && mocha test/feature"
+    "test": "./node_modules/.bin/mocha --reporter spec --recursive -R nyan"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4"
   },
   "repository": {
     "type": "git",
@@ -14,15 +23,5 @@
     "kata",
     "race"
   ],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/gtormiston/battlecodes/issues"
-  },
-  "homepage": "https://github.com/gtormiston/battlecodes#readme",
-  "dependencies": {
-    "chai": "^3.5.0",
-    "mocha": "^2.5.3",
-    "sinon": "^1.17.4"
-  }
+  "homepage": "https://github.com/gtormiston/battlecodes#readme"
 }
