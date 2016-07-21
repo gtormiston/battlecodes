@@ -1,10 +1,21 @@
-$primary-color: #333;
-$sidebar-width: 250px;
-$background-color: white;
+$white: #fff;
+$dark-grey: #333;
+$green: #00d1ab;
+$blue: #2aa2ff;
+$red: #ff6261;
 
-$easy-color: #00d1ab;
+$primary-color: $dark-grey;
+$background-color: $white;
+
+$easy-color: $green;
 $easy-color-dark: darken($easy-color, 20%);
-$medium-color: #2aa2ff;
+$medium-color: $blue;
 $medium-color-dark: darken($medium-color, 20%);
-$hard-color: #ff6261;
+$hard-color: $red;
 $hard-color-dark: darken($hard-color, 35%);
+
+$sidebar-width: 250px;
+
+$small-font: 80%;
+$font-headings: 'Oswald', sans-serif;
+$font-normal: 'Lato', sans-serif;

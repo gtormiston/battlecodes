@@ -7,8 +7,6 @@ html, body {
 
 .main {
   height: 100%;
-  // float: left;
-  // width: auto;
   margin-right: 290px;
   padding: 20px;
   overflow-y: scroll;
@@ -20,12 +18,11 @@ html, body {
   float: right;
   width: $sidebar-width;
   padding: 20px;
-  color:#fff;
+  color: $white;
 
   nav ul {
-
     font-size: $small-font;
-    margin:0;
+    margin: 0;
     padding: 0;
 
     li {
@@ -34,38 +31,39 @@ html, body {
     }
 
     a {
-      color: #fff;
+      color: $white;
     }
   }
 
   h2 {
-    margin-top: 60px;
-    margin-bottom: 35px;
-    color: #fff;
+    // margin-top: 60px;
+    // margin-bottom: 35px;
+    color: $white;
   }
-
 }
 
 .brand {
-  h1 {
-    margin: 0;
+  font-size: 3em;
+  margin: 0 auto 1rem;
+
+  a {
+    color: $primary-color;
     text-transform: uppercase;
-    // padding: 10px 20px;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $medium-color;
+    }
   }
 }
 
-.host-button-container {
-    margin-left: -2.5%;
-    margin-right: -2.5%;
-    overflow: scroll;
-}
-
 .host-button {
-
   width: 25%;
   float:left;
   margin: 10px 0% 10px 2.5%;
-  color: #fff;
+  color: $white;
   padding: 2.5%;
   position: relative;
   transition: all 0.15s;
@@ -76,93 +74,135 @@ html, body {
     transform: translate(5px, -5px);
   }
 
-  &:active, &:focus {
+  &:active,
+  &:focus {
     transform: translate(-2px, 2px);
     box-shadow: none;
   }
 
-  .challenge-icons {
-    float: right;
+  &-container {
+    margin-left: -2.5%;
+    margin-right: -2.5%;
+    overflow: scroll;
   }
-  .challenge-language {
-    font-family: $font-headings;
-    float: left;
-    text-transform: uppercase;
+
+  .challenge {
+
+    &-icons {
+      float: right;
+    }
+
+    &-language {
+      font-family: $font-headings;
+      float: left;
+      text-transform: uppercase;
+    }
+
+    &-title {
+      font-family: $font-headings;
+      font-size: 1.5em;
+      float: left;
+      margin: 10px 0px;
+      width: 100%;
+      text-transform: uppercase;
+    }
+
+    &-description {
+      float: left;
+      width: 100%;
+      font-size: $small-font;
+    }
+
+    &-difficulty {
+      font-family: $font-headings;
+      float: left;
+      width: 100%;
+      margin-top:13px;
+    }
   }
-  .challenge-title {
-    font-family: $font-headings;
-    font-size: 1.5em;
-    float: left;
-    margin: 10px 0px;
-    width: 100%;
-    text-transform: uppercase;
+
+  &.easy {
+    background: $easy-color;
+
+    .challenge-language,
+    .challenge-icons,
+    .challenge-difficulty {
+      color: $easy-color-dark;
+    }
   }
-  .challenge-description {
-    float: left;
-    width: 100%;
-    font-size: $small-font;
+
+  &.medium {
+    background: $medium-color;
+
+    .challenge-language,
+    .challenge-icons,
+    .challenge-difficulty {
+      color: $medium-color-dark;
+    }
   }
-  .challenge-difficulty {
-    font-family: $font-headings;
-    float: left;
-    width: 100%;
-    margin-top:13px;
+
+  &.hard {
+    background: $hard-color;
+
+    .challenge-language,
+    .challenge-icons,
+    .challenge-difficulty {
+      color: $hard-color-dark;
+    }
   }
 }
-
-.host-button.easy {
-  background: $easy-color;
-  .challenge-language, .challenge-icons, .challenge-difficulty {
-    color: $easy-color-dark;
-  }
-}
-
-.host-button.medium {
-  background: $medium-color;
-  .challenge-language, .challenge-icons, .challenge-difficulty {
-    color: $medium-color-dark;
-  }
-}
-
-.host-button.hard {
-  background: $hard-color;
-  .challenge-language, .challenge-icons, .challenge-difficulty {
-    color: $hard-color-dark;
-  }
-}
-
 
 .game-button {
-  padding:20px;
-  margin-bottom:20px;
-  color:#fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: $white;
   text-transform: uppercase;
   font-family: $font-headings;
 
   .challenge-icons {
     float: right;
-    margin-top:-2px
+    margin-top: -2px;
   }
 
-}
-
-.game-button.easy {
+  &.easy {
     background: $easy-color;
-    .challenge-language, .challenge-icons {
+
+    .challenge-language,
+    .challenge-icons {
       color: $easy-color-dark;
     }
-}
+  }
 
-.game-button.medium {
-  background: $medium-color;
-  .challenge-language, .challenge-icons {
-    color: $easy-color-dark;
+  &.medium {
+    background: $medium-color;
+
+    .challenge-language,
+    .challenge-icons {
+      color: $easy-color-dark;
+    }
+  }
+
+  &.hard {
+    background: $hard-color;
+
+    .challenge-language,
+    .challenge-icons {
+      color: $easy-color-dark;
+    }
   }
 }
 
-.game-button.hard {
-  background: $hard-color;
-  .challenge-language, .challenge-icons {
-    color: $easy-color-dark;
+.name-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  margin: 0 auto 0.5rem;
+  border: solid 2px lighten($primary-color, 20%);
+
+  &:focus,
+  &:hover,
+  &:active {
+    outline: none;
+    border-color: $medium-color;
   }
 }

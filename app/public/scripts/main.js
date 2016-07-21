@@ -32,7 +32,7 @@
 
   socket.on('game over', function(data){
     $('#content').html($('#endgame-template').html());
-    $('.endgame-container').text(data.winner + " has won!");
+    $('.endgame-container .overlay-content').text(data.winner + " has won!");
   });
 
   socket.on('set names', function(data){
