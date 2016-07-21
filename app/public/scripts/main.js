@@ -12,11 +12,17 @@
   });
 
   socket.on('roomsAvailable', function(data){
-    $('#joinButtons').empty();
-    $('#joinButtons').append('<h2>Join a room</h2>');
-    for (var i = 0; i < data.rooms.length; i++){
-      $('#joinButtons').append('<button class="js-join-button">' + data.rooms[i] + '</button>');
+    $('#joinButtons').empty().append('<h2>Join a room</h2>');
+
+    if (data.rooms.length > 0){
+      for (var i = 0; i < data.rooms.length; i++){
+        $('#joinButtons').append('<button class="js-join-button">' + data.rooms[i] + '</button>');
+      }
     }
+    else {
+      $('#joinButtons').append('<p>No rooms available</p>')
+    }
+
   });
 
   socket.on('player joined', function(data){
