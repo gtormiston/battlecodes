@@ -32,8 +32,8 @@ io.on('connection', function(socket){
   socket.emit('roomsAvailable', { rooms: filteredRooms });
 
   socket.on('hostGame', function(data){
-    //var roomID = 'room-' + Math.floor(Math.random() * 1000);
-     var roomID = 'room-' + 1;
+    var roomID = 'room-' + Math.floor(Math.random() * 1000);
+    //  var roomID = 'room-' + 1;
 
     socket.join(roomID, function(){
       socket.emit('new room', { roomID: roomID });
@@ -61,22 +61,23 @@ io.on('connection', function(socket){
         var testCases = assets.testCases.JS[challengeID];
         var instructions = assets.instructions.JS[challengeID];
         io.to(data.roomID).emit('player joined', { roomID: data.roomID, testCases: testCases, instructions: instructions });
-        io.emit('set names', { p1: socket.adapter.rooms[data.roomID].game.hostName, p2: data.playerName });
+        io.to(data.roomID).emit('set names', { p1: socket.adapter.rooms[data.roomID].game.hostName, p2: data.playerName });
         socket.adapter.rooms[data.roomID].game.opponent = socket;
       });
     }
     else {
+      alert("Room is full, try another!");
       console.log("NO");
     }
   });
 
-  socket.on('playerSubmission', function(data, playerName){
+  socket.on('playerSubmission', function(data, playerName, roomID){
     if(data.pass) {
-      io.emit('game over', { winner: playerName });
-      var hostSocket = socket.adapter.rooms[socket.roomID].game.host;
-      var opponentSocket = socket.adapter.rooms[socket.roomID].game.opponent;
-      hostSocket.leave(socket.roomID);
-      opponentSocket.leave(socket.roomID);
+      io.to(roomID).emit('game over', { winner: playerName });
+      var hostSocket = socket.adapter.rooms[roomID].game.host;
+      var opponentSocket = socket.adapter.rooms[roomID].game.opponent;
+      hostSocket.leave(roomID);
+      opponentSocket.leave(roomID);
     }
   });
 });
