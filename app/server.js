@@ -45,7 +45,8 @@ io.on('connection', function(socket){
       var game = {
         id: roomID,
         host: socket,
-        challenge: data.challengeID
+        challenge: data.challengeID,
+        hostName: data.playerName
       };
 
       socket.adapter.rooms[roomID].game = game;
@@ -54,20 +55,21 @@ io.on('connection', function(socket){
 
   socket.on('joinGame', function(data){
     if (socket.adapter.rooms[data.roomID].length < 2) {
+      socket.adapter.rooms[data.roomID].game.opponentName = data.playerName;
       socket.join(data.roomID, function(){
         io.to(data.roomID).emit('player joined', { roomID: data.roomID });
+        io.emit('set names', { p1: socket.adapter.rooms[data.roomID].game.hostName, p2: data.playerName });
         socket.adapter.rooms[data.roomID].game.opponent = socket;
       });
-
     }
     else {
       console.log("NO");
     }
   });
 
-  socket.on('playerSubmission', function(data){
+  socket.on('playerSubmission', function(data, playerName){
     if(data.pass) {
-      io.emit('game over', { winner: socket.id });
+      io.emit('game over', { winner: playerName });
       var hostSocket = socket.adapter.rooms[socket.roomID].game.host;
       var opponentSocket = socket.adapter.rooms[socket.roomID].game.opponent;
       hostSocket.leave(socket.roomID);
