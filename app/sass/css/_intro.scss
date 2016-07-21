@@ -1,0 +1,165 @@
+
+$primary-color: #333;
+$sidebar-width: 250px;
+
+$easy-color: #00d1ab;
+$easy-color-dark: darken($easy-color, 20%);
+$medium-color: #2aa2ff;
+$medium-color-dark: darken($medium-color, 20%);
+$hard-color: #ff6261;
+$hard-color-dark: darken($hard-color, 35%);
+
+html, body {
+  font-family: $font-normal;
+  color: $primary-color;
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+  // float: left;
+  // width: auto;
+  margin-right: 290px;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.sidebar {
+  background: #333;
+  height: 100%;
+  float: right;
+  width: $sidebar-width;
+  padding: 20px;
+
+  nav ul {
+
+    font-size: $small-font;
+    margin:0;
+    padding: 0;
+
+    li {
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    a {
+      color: #fff;
+    }
+  }
+
+  h2 {
+    margin-top: 60px;
+    margin-bottom: 35px;
+    color: #fff;
+  }
+
+}
+
+.brand {
+  h1 {
+    margin: 0;
+    text-transform: uppercase;
+    // padding: 10px 20px;
+  }
+}
+
+.host-button-container {
+    margin-left: -2.5%;
+    margin-right: -2.5%;
+    overflow: scroll;
+}
+
+.host-button {
+
+  width: 25%;
+  float:left;
+  margin: 10px 0% 10px 2.5%;
+  color: #fff;
+  padding: 2.5%;
+  position: relative;
+
+  .challenge-icons {
+    float: right;
+  }
+  .challenge-language {
+    font-family: $font-headings;
+    float: left;
+    text-transform: uppercase;
+  }
+  .challenge-title {
+    font-family: $font-headings;
+    font-size: 1.5em;
+    float: left;
+    margin: 10px 0px;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  .challenge-description {
+    float: left;
+    width: 100%;
+    font-size: $small-font;
+  }
+  .challenge-difficulty {
+    font-family: $font-headings;
+    float: left;
+    width: 100%;
+    margin-top:13px;
+  }
+}
+
+.host-button.easy {
+  background: $easy-color;
+  .challenge-language, .challenge-icons, .challenge-difficulty {
+    color: $easy-color-dark;
+  }
+}
+
+.host-button.medium {
+  background: $medium-color;
+  .challenge-language, .challenge-icons, .challenge-difficulty {
+    color: $medium-color-dark;
+  }
+}
+
+.host-button.hard {
+  background: $hard-color;
+  .challenge-language, .challenge-icons, .challenge-difficulty {
+    color: $hard-color-dark;
+  }
+}
+
+
+.game-button {
+  padding:20px;
+  margin-bottom:20px;
+  color:#fff;
+  text-transform: uppercase;
+  font-family: $font-headings;
+
+  .challenge-icons {
+    float: right;
+    margin-top:-2px
+  }
+
+}
+
+.game-button.easy {
+    background: $easy-color;
+    .challenge-language, .challenge-icons {
+      color: $easy-color-dark;
+    }
+}
+
+.game-button.medium {
+  background: $medium-color;
+  .challenge-language, .challenge-icons {
+    color: $easy-color-dark;
+  }
+}
+
+.game-button.hard {
+  background: $hard-color;
+  .challenge-language, .challenge-icons {
+    color: $easy-color-dark;
+  }
+}

@@ -1,6 +1,8 @@
 # BATTLECODES
 ---
 
+Live multiplayer code challenge races.
+
 ## MVP
 ---
 
