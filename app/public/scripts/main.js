@@ -29,8 +29,9 @@
     alert(data.winner + "has won!");
   });
 
-  $('#hostButton').click(function(){
-    socket.emit('hostGame', { challengeID: 5 });
+  $('.host-button').click(function(){
+    var challengeID = $(this).data('challenge-id');
+    socket.emit('hostGame', { challengeID: challengeID });
   });
 
   $('body').on('click', '.js-join-button', function(){
