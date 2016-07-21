@@ -50,6 +50,11 @@
 
   function printMessage(message){
     $('#intro-notices').text(message);
+
+    $('.main').animate({
+        scrollTop: $("#name-anchor").offset().top
+    }, 500);
+
   }
 
   $('.host-button').click(function(){
