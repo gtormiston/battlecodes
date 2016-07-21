@@ -76,7 +76,7 @@
     <script id="intro-template" type="text/template">
       <div class='intro-container'>
         <h1>Start a new game</h1>
-
+        <input type="text" id="player-name">
         <div class="host-button-container">
 
           <div class="host-button javascript easy" data-challenge-id="1" data-mh="host-button">
@@ -133,7 +133,7 @@
 
     <script id="game-template" type="text/template">
       <div class='intro-container'>
-          <h1>Player 1 v Player 2</h1>
+          <h1 id="competitors">Player 1 v Player 2</h1>
         <div class="form-container">
           <form id="solution-form">
             <textarea class='js-solution-text' name="solution" id="solution"></textarea>

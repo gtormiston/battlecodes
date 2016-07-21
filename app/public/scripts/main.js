@@ -9,6 +9,8 @@
                    { testInput: 3,
                      expectedOutput: 6}];
 
+  var playerName;
+
   socket.on('new room', function(data){
     $('#content').html($('#loading-template').html());
   });
@@ -31,22 +33,38 @@
   });
 
   socket.on('game over', function(data){
-    alert(data.winner + "has won!");
+    alert(data.winner + " has won!");
+  });
+
+  socket.on('set names', function(data){
+    $('#competitors').text(data.p1 + " vs. " + data.p2);
   });
 
   $('.host-button').click(function(){
-    var challengeID = $(this).data('challenge-id');
-    socket.emit('hostGame', { challengeID: challengeID });
+    if($('#player-name').val() === "") {
+      alert("You must enter a name to play")
+    }
+    else {
+      playerName = $('#player-name').val();
+      var challengeID = $(this).data('challenge-id');
+      socket.emit('hostGame', { challengeID: challengeID, playerName: $('#player-name').val() });
+    }
   });
 
   $('body').on('click', '.js-join-button', function(){
-    socket.emit('joinGame', { roomID: $(this).text() });
+    if($('#player-name').val() === "") {
+      alert("You must enter a name to play")
+    }
+    else {
+      playerName = $('#player-name').val();
+      socket.emit('joinGame', { roomID: $(this).text(), playerName: $('#player-name').val() });
+    }
   });
 
   $("body").on('submit', '#solution-form', function(e){
     event.preventDefault();
     var submission = $('.js-solution-text').val();
-    var testResults = submissionHandler(submission,testCases,test,generateHTML,socket);
+    var testResults = submissionHandler(submission,testCases,test,generateHTML,socket,playerName);
     $('.js-results').html(testResults);
   });
 
