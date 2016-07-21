@@ -34,7 +34,7 @@ io.on('connection', function(socket){
 
       var game = {
         id: roomID,
-        host: socket.id,
+        host: socket,
         challenge: data.challengeID
       };
 
@@ -46,7 +46,7 @@ io.on('connection', function(socket){
     if (socket.adapter.rooms[data.roomID].length < 2) {
       socket.join(data.roomID, function(){
         io.to(data.roomID).emit('player joined', { roomID: data.roomID });
-        socket.adapter.rooms[data.roomID].game.opponent = socket.id;
+        socket.adapter.rooms[data.roomID].game.opponent = socket;
       });
 
     }
@@ -58,7 +58,10 @@ io.on('connection', function(socket){
   socket.on('playerSubmission', function(data){
     if(data.pass) {
       io.emit('game over', { winner: socket.id });
-      socket.leave(socket.roomID);
+      var hostSocket = socket.adapter.rooms[socket.roomID].game.host;
+      var opponentSocket = socket.adapter.rooms[socket.roomID].game.opponent;
+      hostSocket.leave(socket.roomID);
+      opponentSocket.leave(socket.roomID);
     }
   });
 });
