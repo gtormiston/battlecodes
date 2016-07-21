@@ -57,7 +57,8 @@ io.on('connection', function(socket){
       socket.join(data.roomID, function(){
         var challengeID = socket.adapter.rooms[data.roomID].game.challenge;
         var testCases = assets.testCases.JS[challengeID];
-        io.to(data.roomID).emit('player joined', { roomID: data.roomID, testCases: testCases });
+        var instructions = assets.instructions.JS[challengeID];
+        io.to(data.roomID).emit('player joined', { roomID: data.roomID, testCases: testCases, instructions: instructions });
         socket.adapter.rooms[data.roomID].game.opponent = socket;
       });
     }
@@ -78,7 +79,7 @@ io.on('connection', function(socket){
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-//challenge assets (testCases and descriptions) below; we promise these will be 
+//challenge assets (testCases and descriptions) below; we promise these will be
 //stored in a separate file and imported upon request, but this is fine for an MVP
 
 var assets = {
@@ -145,9 +146,19 @@ var assets = {
                     }
               },
               instructions: {
-                           JS: {
-                               }
-                            }
+                JS: {
+                      1:  "Write a function that works out number of seconds in seven years",
+                      2:  "Write a function that returns an absolute cubed number no higher than 1000",
+                      3:  "Write a function that returns the same number minus 1 and a half",
+                      4:  "Write a function that converts a number to a string and rounds down to two decimal places",
+                      5:  "Write a function that calculates the lowest common denominator between a given number and nine",
+                      6:  "One plus one iiiis ???",
+                      7:  "Write a function that calculates a number squared plus eight times five hundred and eight divided by three point five plus nine rounded to three decimal places...plus one (in this order, so ignoring BODMAS)",
+                      8:  "Write a function that calculates the greatest common divisor of a given number and nine hundred",
+                      9:  "Write a function that returns the square root of a given number (if not a whole number then to 2 decimal places)",
+                      10: "Write a function that takes a number y, creates a (y x y) cube, and returns the number of cubes within it, minus the top layer of cubes"
+                    }
+              }
              }
 ////////////////////////////////////////////////////////////////////////////////
 

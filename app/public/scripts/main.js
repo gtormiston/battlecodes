@@ -18,6 +18,8 @@
   socket.on('player joined', function(data){
     window.testCases = data.testCases;
     $('#content').html($('#game-template').html());
+    $('#joinButtons').html($('#instructions-template').html());
+    $('#js-instructions').text(data.instructions);
     socket.roomID = data.roomID;
   });
 
