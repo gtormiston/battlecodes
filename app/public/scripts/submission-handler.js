@@ -1,5 +1,6 @@
 ;(function (exports){
   function submissionHandler(submission, testCases, testEngine, generateHTML, socket) {
+    // instance_
     eval("var solution = " + submission);
     var testResults = testEngine(solution, testCases);
 

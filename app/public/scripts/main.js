@@ -23,6 +23,11 @@
   socket.on('player joined', function(data){
     $('#content').html($('#game-template').html());
     socket.roomID = data.roomID;
+    CodeMirror.fromTextArea(document.getElementById("solution"), {
+      lineNumbers: true,
+      matchBrackets: true,
+      mode: 'javascript'
+    });
   });
 
   socket.on('game over', function(data){
@@ -38,9 +43,10 @@
     socket.emit('joinGame', { roomID: $(this).text() });
   });
 
-  $('body').on('click', '.js-submit-button', function(event){
+  $("body").on('submit', '#solution-form', function(e){
     event.preventDefault();
-    var testResults = submissionHandler($('.js-solution-text').val(),testCases,test,generateHTML,socket);
+    var submission = $('.js-solution-text').val();
+    var testResults = submissionHandler(submission,testCases,test,generateHTML,socket);
     $('.js-results').html(testResults);
   });
 
