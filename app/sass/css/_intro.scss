@@ -1,6 +1,12 @@
 $font: Helvetica, sans-serif;
 $primary-color: #333;
 $sidebar-width: 250px;
+$easy-color: #00d1ab;
+$easy-color-dark: darken($easy-color, 20%);
+$medium-color: #00d1ab;
+$medium-color-dark: darken($medium-color, 20%);
+$hard-color: #ff6261;
+$hard-color-dark: darken($hard-color, 20%);
 
 html, body {
   font: $font;
@@ -54,24 +60,60 @@ html, body {
 }
 
 .host-button-container {
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: -2.5%;
+    margin-right: -2.5%;
 }
 
 .host-button {
 
-  width: 30%;
-  background:red;
+  width: 25%;
   height: 200px;
   float:left;
-  margin: 2.5% 1.25%;
+  margin: 10px 0% 10px 2.5%;
+  color: #fff;
+  padding: 2.5%;
+  position: relative;
 
-  .challenge-icons {}
-  .challenge-language {}
-  .challenge-title {}
-  .challenge-description {}
-  .challenge-difficulty {}
+  .challenge-icons {
+    float: right;
+  }
+  .challenge-language {
+    float: left;
+    text-transform: uppercase;
+  }
+  .challenge-title {
+    float: left;
+    margin: 15px 0px;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  .challenge-description {
+    float: left;
+    width: 100%;}
+  .challenge-difficulty {
+    float: left;
+    width: 100%;
+  }
 
+}
 
+.host-button.easy {
+  background: $easy-color;
+  .challenge-language {
+    color: $easy-color-dark;
+  }
+}
 
+.host-button.medium {
+  background: $medium-color;
+  .challenge-language {
+    color: $medium-color-dark;
+  }
+}
+
+.host-button.hard {
+  background: $hard-color;
+  .challenge-language {
+    color: $hard-color-dark;
+  }
 }
