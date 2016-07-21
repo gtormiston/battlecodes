@@ -18,7 +18,7 @@
         </ul>
       </nav>
 
-      <!-- <div id="joinButtons">
+       <div id="joinButtons">
          <h2>Join a game</h2>
 
         <div class="join-game-container">
@@ -47,7 +47,7 @@
           </div>
 
         </div>
-      </div>-->
+      </div>
       <div id="opponentStats">
         <h2>Opponent Stats</h2>
           <div class="opponent-window">
@@ -71,7 +71,7 @@
         </div>
       </div>
     <script id="intro-template" type="text/template">
-      <!-- <div class='intro-container'>
+      <div class='intro-container'>
         <h1>Start a new game</h1>
 
         <div class="host-button-container">
@@ -128,7 +128,7 @@
 
         </div>
 
-      </div> -->
+      </div> 
       <div class='intro-container'>
         <h1>Player 1 v Player 2</h1>
           <div class="form-container">
@@ -139,16 +139,16 @@
             </form>
           </div>
 
-        <h2>Your test results</h1>
-        <div class="js-results">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
+    <script id="game-template" type="text/template">
+      <div class='game-play-container'>
+        <form>
+          <textarea class='js-solution-text' name="solution"></textarea>
+          <input class='js-submit-button' type="submit" value="Submit solution">
+        </form>
+        <div class='js-results'></div>
+        <!-- This contains the main screen where the game happens -->
       </div>
     </script>
-
-    <!-- <script id="game-template" type="text/template"> -->
-
-    <!-- </script> -->
 
     <script id="loading-template" type="text/template">
       <div class='loading-container'>
@@ -159,10 +159,13 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="scripts/vendor/jquery.matchHeight-min.js" charset="utf-8"></script>
-    <script src="scripts/vendor/codemirror.js" charset="utf-8"></script>
-    <script src="scripts/vendor/codemirror-mode/javascript.js" charset="utf-8"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/plugins.js"></script>
+    <script src="/scripts/vendor/jquery.matchHeight-min.js" charset="utf-8"></script>
+    <script src="/scripts/vendor/codemirror.js" charset="utf-8"></script>
+    <script src="/scripts/vendor/codemirror-mode/javascript.js" charset="utf-8"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/plugins.js"></script>
+    <script src="/scripts/submission-handler.js"></script>
+    <script src="/scripts/generateHTML.js"></script>
+    <script src="/scripts/testing-engine.js"></script>
   </body>
 </html>

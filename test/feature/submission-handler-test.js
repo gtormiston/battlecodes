@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
-var submissionHandler = require('../../app/lib/submission-handler').submissionHandler;
-var testEngine = require('../../app/lib/testing-engine').test;
-var generateHTML = require('../../app/lib/generateHTML').generateHTML;
+var submissionHandler = require('../../app/public/scripts/submission-handler').submissionHandler;
+var testEngine = require('../../app/public/scripts/testing-engine').test;
+var generateHTML = require('../../app/public/scripts/generateHTML').generateHTML;
 var sinon = require('sinon');
 
 describe('Submission Handler', function() {

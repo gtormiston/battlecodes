@@ -17,7 +17,7 @@ describe('Game initialisation', function(){
   before(function(next){
     opponentBrowser.visit('/', next);
   });
-  
+
   it('has no join button if a game is not hosted', function(){
     expect(opponentBrowser.text()).to.not.contain('room-1');
   });
@@ -37,13 +37,8 @@ describe('Game initialisation', function(){
     opponentBrowser.pressButton('room-1');
 
     setTimeout(function(){
-      expect(hostBrowser.text('#content')).to.contain('Submit solution');
-      expect(opponentBrowser.text('#content')).to.contain('Submit solution');
-
-     // expect(hostBrowser.element('#loading-messages')).to.not.exist;
-     // expect(opponentBrowser.element('#loading-messages')).to.not.exist;
-     // expect(hostBrowser.element('#intro')).to.not.exist;
-     // expect(opponentBrowser.element('#intro')).to.not.exist;
+      hostBrowser.assert.attribute('input','value','Submit solution');
+      opponentBrowser.assert.attribute('input','value','Submit solution');
       done();
     }, 1000);
   });
