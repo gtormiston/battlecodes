@@ -18,37 +18,39 @@
         </ul>
       </nav>
 
-      <!-- <div id="joinButtons">
-         <h2>Join a game</h2>
+      <div id="joinButtons">
+      </div>
 
-        <div class="join-game-container">
-          <div class="game-button javascript easy" data-challenge-id="1">
-            <span class="challenge-language">javascript</span>
-            <span class="challenge-title">challenge #1</span>
-            <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
-          </div>
+      <h2>Join a game</h2>
 
-          <div class="game-button javascript medium" data-challenge-id="2">
-            <span class="challenge-language">javascript</span>
-            <span class="challenge-title">challenge #2</span>
-            <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
-          </div>
-
-          <div class="game-button javascript hard" data-challenge-id="3">
-            <span class="challenge-language">javascript</span>
-            <span class="challenge-title">challenge #3</span>
-            <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
-          </div>
-
-          <div class="game-button javascript easy" data-challenge-id="4">
-            <span class="challenge-language">javascript</span>
-            <span class="challenge-title">challenge #4</span>
-            <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
-          </div>
-
+      <div class="join-game-container">
+        <div class="game-button javascript easy" data-challenge-id="1">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #1</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
         </div>
-      </div>-->
-      <div id="opponentStats">
+
+        <div class="game-button javascript medium" data-challenge-id="2">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #2</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="game-button javascript hard" data-challenge-id="3">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #3</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="game-button javascript easy" data-challenge-id="4">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #4</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+
+      </div>
+
+      <!-- <div id="opponentStats">
         <h2>Opponent Stats</h2>
           <div class="opponent-window">
           </div>
@@ -58,7 +60,7 @@
             <li>2 submissions</li>
             <li>30 second penalty</li>
           </ul>
-      </div>
+      </div> -->
     </div>
 
       <div class='main'>
@@ -71,7 +73,7 @@
         </div>
       </div>
     <script id="intro-template" type="text/template">
-      <!-- <div class='intro-container'>
+      <div class='intro-container'>
         <h1>Start a new game</h1>
 
         <div class="host-button-container">
@@ -124,31 +126,29 @@
             <span class="challenge-difficulty">easy</span>
           </div>
 
-
-
-        </div>
-
-      </div> -->
-      <div class='intro-container'>
-        <h1>Player 1 v Player 2</h1>
-          <div class="form-container">
-
-            <form id="solution-form">
-              <textarea class="js-solution-text" name="solution" id="solution"></textarea>
-              <input class="js-submit-button" type="submit" value="Submit solution">
-            </form>
-          </div>
-
-        <h2>Your test results</h1>
-        <div class="js-results">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </div>
       </div>
     </script>
 
-    <!-- <script id="game-template" type="text/template"> -->
+  <script id="game-template" type="text/template">
+    <div class='intro-container'>
+      <h1>Player 1 v Player 2</h1>
+        <div class="form-container">
 
-    <!-- </script> -->
+          <form id="solution-form">
+            <textarea class="js-solution-text" name="solution" id="solution"></textarea>
+            <input class="js-submit-button" type="submit" value="Submit solution">
+          </form>
+        </div>
+
+      <h2>Your test results</h1>
+      <div class="js-results">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+    </script>
+
+
 
     <script id="loading-template" type="text/template">
       <div class='loading-container'>
