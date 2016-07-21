@@ -14,6 +14,8 @@
           <li><a href="#">About</a></li>
         </ul>
       </nav>
+
+      <h2>Join a game</h2>
     </div>
 
       <div class='main'>
@@ -21,15 +23,36 @@
           <div class='brand'><h1>Battlecodes</h1></div>
         </header>
         <div id="content">
-          
+
           <!-- Main wrapper for visible elements -->
         </div>
       </div>
     <script id="intro-template" type="text/template">
       <div class='intro-container'>
-        <button type="button" name="button" id="hostButton">
-          HOST GAME
-        </button>
+        <h1>Start a new game</h1>
+
+        <div class="host-button-container">
+
+          <div class="host-button javascript easy" data-challenge-id="1">
+            <span class="challenge-icons"></span>
+            <span class="challenge-language">javascript</span>
+            <span class="challenge-title">challenge #1</span>
+            <span class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            <span class="challenge-difficulty">easy</span>
+          </div>
+
+          <div class="host-button javascript easy" data-challenge-id="2">
+          </div>
+
+          <div class="host-button javascript easy" data-challenge-id="3">
+          </div>
+
+        </div><!-- /host-button-container -->
+
+          <button type="button" name="button" id="hostButton">
+            HOST GAME
+          </button>
+
 
         <div id="joinButtons"><!-- New room buttons will appear here --></div>
       </div>
