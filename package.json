@@ -4,7 +4,7 @@
   "description": "race to solve a kata first",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec --recursive -R nyan",
+    "test": "./node_modules/.bin/mocha --reporter spec --recursive",
     "start": "node app/server.js"
   },
   "dependencies": {

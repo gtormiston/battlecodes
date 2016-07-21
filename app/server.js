@@ -45,12 +45,20 @@ io.on('connection', function(socket){
   socket.on('joinGame', function(data){
     if (socket.adapter.rooms[data.roomID].length < 2) {
       socket.join(data.roomID, function(){
-        io.to(data.roomID).emit('player joined');
+        io.to(data.roomID).emit('player joined', { roomID: data.roomID });
         socket.adapter.rooms[data.roomID].game.opponent = socket.id;
       });
+
     }
     else {
       console.log("NO");
+    }
+  });
+
+  socket.on('playerSubmission', function(data){
+    if(data.pass) {
+      io.emit('game over', { winner: socket.id });
+      socket.leave(socket.roomID);
     }
   });
 });

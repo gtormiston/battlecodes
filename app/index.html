@@ -22,7 +22,11 @@
 
     <script id="game-template" type="text/template">
       <div class='game-play-container'>
-        Submit solution
+        <form>
+          <textarea class='js-solution-text' name="solution"></textarea>
+          <input class='js-submit-button' type="submit" value="Submit solution">
+        </form>
+        <div class='js-results'></div>
         <!-- This contains the main screen where the game happens -->
       </div>
     </script>
@@ -36,6 +40,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="/scripts/main.js"></script>
+    <script src="/scripts/submission-handler.js"></script>
+    <script src="/scripts/generateHTML.js"></script>
+    <script src="/scripts/testing-engine.js"></script>
   </body>
 </html>
