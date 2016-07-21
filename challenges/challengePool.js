@@ -2,7 +2,7 @@
 
 '1) Write a function that works out number of seconds in seven years';
 
-var testCases = [ {testInput: nil, expectedOutput: 220752000}];
+var testCases = [ {testInput: '', expectedOutput: 220752000}];
 
 '2) Write a function that returns an absolute cubed number no higher than 1000';
 

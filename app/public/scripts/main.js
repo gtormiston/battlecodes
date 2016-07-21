@@ -4,11 +4,6 @@
 
   var socket = io();
 
-  var testCases = [{ testInput: 2,
-                     expectedOutput: 4},
-                   { testInput: 3,
-                     expectedOutput: 6}];
-
   socket.on('new room', function(data){
     $('#content').html($('#loading-template').html());
   });
@@ -21,6 +16,7 @@
   });
 
   socket.on('player joined', function(data){
+    window.testCases = data.testCases;
     $('#content').html($('#game-template').html());
     socket.roomID = data.roomID;
   });
