@@ -4,11 +4,6 @@
 
   var socket = io();
 
-  var testCases = [{ testInput: 2,
-                     expectedOutput: 4},
-                   { testInput: 3,
-                     expectedOutput: 6}];
-
   var playerName;
 
   socket.on('new room', function(data){
@@ -23,7 +18,10 @@
   });
 
   socket.on('player joined', function(data){
+    window.testCases = data.testCases;
     $('#content').html($('#game-template').html());
+    $('#joinButtons').html($('#instructions-template').html());
+    $('#js-instructions').text(data.instructions);
     socket.roomID = data.roomID;
     CodeMirror.fromTextArea(document.getElementById("solution"), {
       lineNumbers: true,
