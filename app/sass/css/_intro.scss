@@ -77,6 +77,18 @@ html, body {
   color: #fff;
   padding: 2.5%;
   position: relative;
+  transition: all 0.15s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: -5px 5px 3px 0px rgba(0, 0, 0, 0.2);
+    transform: translate(5px, -5px);
+  }
+
+  &:active, &:focus {
+    transform: translate(-2px, 2px);
+    box-shadow: none;
+  }
 
   .challenge-icons {
     float: right;
