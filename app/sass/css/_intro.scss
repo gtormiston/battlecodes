@@ -1,18 +1,8 @@
-
-$primary-color: #333;
-$sidebar-width: 250px;
-
-$easy-color: #00d1ab;
-$easy-color-dark: darken($easy-color, 20%);
-$medium-color: #2aa2ff;
-$medium-color-dark: darken($medium-color, 20%);
-$hard-color: #ff6261;
-$hard-color-dark: darken($hard-color, 35%);
-
 html, body {
   font-family: $font-normal;
   color: $primary-color;
   height: 100%;
+  background-color: $background-color;
 }
 
 .main {
@@ -25,7 +15,7 @@ html, body {
 }
 
 .sidebar {
-  background: #333;
+  background: $primary-color;
   height: 100%;
   float: right;
   width: $sidebar-width;
