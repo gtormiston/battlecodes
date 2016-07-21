@@ -23,7 +23,6 @@
   socket.on('player joined', function(data){
     $('#content').html($('#game-template').html());
     socket.roomID = data.roomID;
-    console.log(socket);
   });
 
   socket.on('game over', function(data){

@@ -25,20 +25,20 @@ describe('Game play', function(){
   before(function(done){
     setTimeout(function(){
       opponentBrowser.pressButton('room-1');
-    }, 500);
+    }, 400);
     done();
   });
 
   it("can submit a solution and see results", function(done){
     setTimeout(function(){
-      hostBrowser.fill('solution', "function test(n) = { return n; };");
+      hostBrowser.fill('solution', "function test(n) { return n; };");
       hostBrowser.pressButton('Submit solution');
     }, 800);
 
     setTimeout(function(){
       expect(hostBrowser.text()).to.contain("tests passed");
       done();
-    }, 1500);
+    }, 1200);
   });
 
 });
