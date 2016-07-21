@@ -1,5 +1,5 @@
 var expect = require('chai').expect;
-var generateHTML = require('../../app/lib/generateHTML').generateHTML;
+var generateHTML = require('../../app/public/scripts/generateHTML').generateHTML;
 
 describe('display', function() {
 
