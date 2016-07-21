@@ -1,9 +1,23 @@
 ;(function (exports){
-  function submissionHandler(submission, testCases, testEngine, generateHTML, socket) {
-    eval("var solution = " + submission);
-    var testResults = testEngine(solution, testCases);
+  function submissionHandler(submission, testCases, testEngine, generateHTML, socket, playerName) {
+    // instance_
+    try {
+      eval("var solution = " + submission);
+    }
+    catch(err) {
+      return "<h3>Error in solution code:</h3>" +
+             "<li>" + err.name + ": " + err.message + "</li>";
+    }
 
-    socket.emit('playerSubmission', testResults);
+    try {
+      var testResults = testEngine(solution, testCases);
+    }
+    catch(err) {
+      return "<h3>Error in solution code:</h3>" +
+             "<li>" + err.name + ": " + err.message + "</li>";
+    }
+
+    socket.emit('playerSubmission', testResults, playerName);
 
     return generateHTML(testResults.results);
   }
