@@ -1,5 +1,5 @@
 ;(function (exports){
-  function submissionHandler(submission, testCases, testEngine, generateHTML, socket, playerName) {
+  function submissionHandler(submission, testCases, testEngine, generateHTML, playerName) {
     // instance_
     try {
       eval("var solution = " + submission);
@@ -17,7 +17,7 @@
              "<li>" + err.name + ": " + err.message + "</li>";
     }
 
-    socket.emit('playerSubmission', testResults, playerName);
+    socket.emit('playerSubmission', testResults, playerName, socket.roomID);
 
     return generateHTML(testResults.results);
   }
