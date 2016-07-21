@@ -1,6 +1,8 @@
 $small-font: 80%;
 
-// font-family: 'Oswald', sans-serif;
+$font-headings: 'Oswald', sans-serif;
+$font-normal: 'Lato', sans-serif;
+
 h1,h2,h3,h4,h5,h6 {
-  font-family: 'Oswald', sans-serif;
+  font-family: $font-headings;
 }

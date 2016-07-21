@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title></title>
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://use.fontawesome.com/08cceb54e3.js"></script>
   </head>
   <body>
     <div class='sidebar'>
@@ -16,6 +18,35 @@
       </nav>
 
       <h2>Join a game</h2>
+
+      <div class="join-game-container">
+
+        <div class="game-button javascript easy" data-challenge-id="1">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #1</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="game-button javascript medium" data-challenge-id="2">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #2</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="game-button javascript hard" data-challenge-id="3">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #3</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="game-button javascript easy" data-challenge-id="4">
+          <span class="challenge-language">javascript</span>
+          <span class="challenge-title">challenge #4</span>
+          <span class="challenge-icons"><i class="fa fa-play" aria-hidden="true"></i></span>
+        </div>
+
+      </div>
+
     </div>
 
       <div class='main'>
@@ -33,40 +64,60 @@
 
         <div class="host-button-container">
 
-          <div class="host-button javascript easy" data-challenge-id="1">
-            <span class="challenge-icons">!!!!</span>
+          <div class="host-button javascript easy" data-challenge-id="1" data-mh="host-button">
+            <span class="challenge-icons"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
             <span class="challenge-language">javascript</span>
             <span class="challenge-title">challenge #1</span>
             <span class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
             <span class="challenge-difficulty">easy</span>
           </div>
 
-          <div class="host-button javascript easy" data-challenge-id="2">
-
+          <div class="host-button javascript medium" data-challenge-id="2" data-mh="host-button">
+            <span class="challenge-icons"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+            <span class="challenge-language">javascript</span>
+            <span class="challenge-title">challenge #2</span>
+            <span class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            <span class="challenge-difficulty">easy</span>
           </div>
 
-          <div class="host-button javascript easy" data-challenge-id="3">
-
+          <div class="host-button javascript hard" data-challenge-id="3" data-mh="host-button">
+            <span class="challenge-icons"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+            <span class="challenge-language">javascript</span>
+            <span class="challenge-title">challenge #3</span>
+            <span class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            <span class="challenge-difficulty">easy</span>
           </div>
-          <div class="host-button javascript easy" data-challenge-id="2">
 
+          <div class="host-button javascript medium" data-challenge-id="2" data-mh="host-button">
+            <span class="challenge-icons"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+            <span class="challenge-language">javascript</span>
+            <span class="challenge-title">challenge #1</span>
+            <span class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            <span class="challenge-difficulty">easy</span>
           </div>
-          <div class="host-button javascript easy" data-challenge-id="2">
 
+          <div class="host-button javascript easy" data-challenge-id="2" data-mh="host-button">
+            <span class="challenge-icons"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+            <span class="challenge-language">javascript</span>
+            <span class="challenge-title">challenge #1</span>
+            <span class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            <span class="challenge-difficulty">easy</span>
           </div>
-          <div class="host-button javascript easy" data-challenge-id="2">
 
-          </div>
-          <div class="host-button javascript easy" data-challenge-id="2">
-
+          <div class="host-button javascript easy" data-challenge-id="2" data-mh="host-button">
+            <span class="challenge-icons"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
+            <span class="challenge-language">javascript</span>
+            <span class="challenge-title">challenge #1</span>
+            <span class="challenge-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+            <span class="challenge-difficulty">easy</span>
           </div>
 
 
         </div><!-- /host-button-container -->
 
-          <button type="button" name="button" id="hostButton">
+          <!-- <button type="button" name="button" id="hostButton">
             HOST GAME
-          </button>
+          </button> -->
 
 
         <div id="joinButtons"><!-- New room buttons will appear here --></div>
@@ -89,6 +140,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts/vendor/jquery.matchHeight-min.js" charset="utf-8"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
