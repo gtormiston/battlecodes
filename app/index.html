@@ -33,11 +33,11 @@
         </div>
       </div>
 
-
     <script id="intro-template" type="text/template">
       <div class='intro-container'>
         <h1>Start a new game</h1>
         <input type="text" id="player-name">
+        <div id="intro-notices"></div>
         <div class="host-button-container">
 
           <div class="host-button javascript hard" data-challenge-id="1" data-mh="host-button">
@@ -143,10 +143,17 @@
       <p id="js-instructions"></p>
     </script>
 
-    <script id="loading-template" type="text/template">
+    <script class="overlay" id="loading-template" type="text/template">
       <div class='loading-container'>
         Just waiting for opponent to join
         <!-- This contains the waiting for players to join overlay -->
+      </div>
+    </script>
+
+    <script class="overlay" id="endgame-template" type="text/template">
+      <div class='endgame-container'>
+        Just waiting for opponent to join
+        <!-- This contains the end game overlay -->
       </div>
     </script>
 
