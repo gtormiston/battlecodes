@@ -1,37 +1,39 @@
 (function(exports){
-
   $('#content').html($('#intro-template').html());
-
   var socket = io();
-
   var playerName;
+  var isPlayingGame = false;
 
   socket.on('new room', function(data){
     $('#content').html($('#loading-template').html());
     $('#room-id').text(data.roomID);
   });
 
-  socket.on('roomsAvailable', function(data){
-    $('#joinButtons').empty().append('<h2>Join a room</h2>');
+  socket.on('updateAvailableRooms', function(data){
+    if (!isPlayingGame){
+      $('#joinButtons').empty().append('<h2>Join a room</h2>');
 
-    if (data.rooms.length > 0){
-      for (var i = 0; i < data.rooms.length; i++){
-        $('#joinButtons').append('<button class="js-join-button">' + data.rooms[i] + '</button>');
+      if (data.rooms.length > 0){
+        for (var i = 0; i < data.rooms.length; i++){
+          $('#joinButtons').append('<button class="js-join-button">' + data.rooms[i] + '</button>');
+        }
+      }
+      else {
+        $('#joinButtons').append('<p>No rooms available</p>')
       }
     }
-    else {
-      $('#joinButtons').append('<p>No rooms available</p>')
-    }
-
   });
 
   socket.on('player joined', function(data){
+    isPlayingGame = true;
     window.testCases = data.testCases;
+
     $('#content').html($('#game-template').html());
     $('#joinButtons').html($('#instructions-template').html());
     $('#js-instructions').text(data.instructions);
+
     socket.roomID = data.roomID;
-    console.log(socket.roomID);
+
     CodeMirror.fromTextArea(document.getElementById("solution"), {
       lineNumbers: true,
       matchBrackets: true,
@@ -40,6 +42,7 @@
   });
 
   socket.on('game over', function(data){
+    isPlayingGame = false;
     $('#content').html($('#endgame-template').html());
     $('#endgame-announcer').text(data.winner + " has won!");
   });
@@ -67,6 +70,32 @@
       socket.emit('hostGame', { challengeID: challengeID, playerName: $('#player-name').val() });
     }
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //
 
   $('body').on('click', '.js-join-button', function(){
     if($('#player-name').val() === "") {
