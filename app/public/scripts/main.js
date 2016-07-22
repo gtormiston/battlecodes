@@ -1,9 +1,6 @@
 (function(exports){
-
   $('#content').html($('#intro-template').html());
-
   var socket = io();
-
   var playerName;
 
   socket.on('new room', function(data){
@@ -41,7 +38,7 @@
 
   socket.on('game over', function(data){
     $('#content').html($('#endgame-template').html());
-    $('.endgame-container .overlay-content').text(data.winner + " has won!");
+    $('#endgame-announcer').text(data.winner + " has won!");
   });
 
   socket.on('set names', function(data){

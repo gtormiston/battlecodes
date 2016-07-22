@@ -1,6 +1,5 @@
 ;(function (exports){
   function submissionHandler(submission, testCases, testEngine, generateHTML, playerName) {
-    // instance_
     try {
       eval("var solution = " + submission);
     }

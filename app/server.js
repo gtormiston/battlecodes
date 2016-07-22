@@ -20,7 +20,6 @@ app.use(sassMiddleware({
 
 app.use(express.static('app/public'));
 
-
 io.on('connection', function(socket){
   var filteredRooms = [];
 
@@ -49,41 +48,43 @@ io.on('connection', function(socket){
         hostName: data.playerName
       };
 
-      socket.adapter.rooms[roomID].game = game;
+      findRoom(socket, roomID).game = game;
     });
   });
 
   socket.on('joinGame', function(data){
-    if (socket.adapter.rooms[data.roomID].length < 2) {
-      socket.adapter.rooms[data.roomID].game.opponentName = data.playerName;
+    if (findRoom(socket, data.roomID).length < 2) {
+      findRoom(socket, data.roomID).game.opponentName = data.playerName;
       socket.join(data.roomID, function(){
-        var challengeID = socket.adapter.rooms[data.roomID].game.challenge;
+        var challengeID = findRoom(socket, data.roomID).game.challenge;
         var testCases = assets.testCases.JS[challengeID];
         var instructions = assets.instructions.JS[challengeID];
         io.to(data.roomID).emit('player joined', { roomID: data.roomID, testCases: testCases, instructions: instructions });
-        io.to(data.roomID).emit('set names', { p1: socket.adapter.rooms[data.roomID].game.hostName, p2: data.playerName });
-        socket.adapter.rooms[data.roomID].game.opponent = socket;
+        io.to(data.roomID).emit('set names', { p1: findRoom(socket, data.roomID).game.hostName, p2: data.playerName });
+        findRoom(socket, data.roomID).game.opponent = socket;
       });
     }
     else {
       alert("Room is full, try another!");
-      console.log("NO");
     }
   });
 
   socket.on('playerSubmission', function(data, playerName, roomID){
     if(data.pass) {
       io.to(roomID).emit('game over', { winner: playerName });
-      var hostSocket = socket.adapter.rooms[roomID].game.host;
-      var opponentSocket = socket.adapter.rooms[roomID].game.opponent;
+      var hostSocket = findRoom(socket, roomID).game.host;
+      var opponentSocket = findRoom(socket, roomID).game.opponent;
       hostSocket.leave(roomID);
       opponentSocket.leave(roomID);
     }
   });
 });
 
-
-
 http.listen(process.env.PORT || 3000, function(){
   console.log('listening on *:3000');
 });
+
+
+function findRoom(socket, roomID){
+  return socket.adapter.rooms[roomID];
+}
