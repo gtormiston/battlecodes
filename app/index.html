@@ -10,36 +10,35 @@
     <script src="https://use.fontawesome.com/08cceb54e3.js"></script>
   </head>
   <body>
-    <div class='sidebar'>
+    <div class="sidebar">
       <!-- <nav>
         <ul>
           <li><a href="#">Instructions</a></li>
           <li><a href="#">About</a></li>
         </ul>
       </nav> -->
-
       <div id="joinButtons">
         <!-- Container for joining buttons -->
       </div>
     </div>
 
 
-      <div class='main'>
+      <div class="main">
         <header>
-          <div class='brand'><h1><a href="/">Battlecodes</a></h1></div>
+          <h1 class="brand"><a href="/">Battlecodes</a></h1>
         </header>
         <div id="content">
           <!-- Main wrapper for visible elements -->
         </div>
       </div>
 
-
     <script id="intro-template" type="text/template">
       <div class='intro-container'>
-        <h1>Start a new game</h1>
-        Enter player name: <input type="text" id="player-name">
+        <h2 id="name-anchor">Enter your name</h2>
+        <input type="text" id="player-name" class="name-input">
+        <div id="intro-notices"></div>
+        <h2>Pick a challenge</h2>
         <div class="host-button-container">
-
           <div class="host-button javascript hard" data-challenge-id="1" data-mh="host-button">
             <span class="challenge-icons"><i class="fa fa-bookmark" aria-hidden="true"></i></span>
             <span class="challenge-language">javascript</span>
@@ -144,9 +143,27 @@
     </script>
 
     <script id="loading-template" type="text/template">
-      <div class='loading-container'>
-        Just waiting for opponent to join. Your room number is: <span id="room-id"></span>
-        <!-- This contains the waiting for players to join overlay -->
+      <!-- This contains the waiting for players to join overlay -->
+      <div class="loading-container overlay">
+        <div class="overlay-content">
+          <p>You are in <strong><span id="room-id"></span></strong></p>
+          <p>Waiting for opponent to join...</p>
+        </div>
+        <div class="overlay-content">
+          <a href="/">RESET</a>
+        </div>
+      </div>
+    </script>
+
+    <script id="endgame-template" type="text/template">
+      <!-- This contains the end game overlay -->
+      <div class='endgame-container overlay'>
+        <div class="overlay-content">
+          And the winner is...
+        </div>
+        <div class="overlay-content">
+          <a href="/">RESET</a>
+        </div>
       </div>
     </script>
 
