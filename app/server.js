@@ -12,24 +12,16 @@ app.get('/', function(req, res){
 });
 
 app.use(sassMiddleware({
-    src: srcPath,
-    dest: destPath,
-    debug :true,
-    outputStyle: 'compressed'
-  }));
+  src: srcPath,
+  dest: destPath,
+  debug :true,
+  outputStyle: 'compressed'
+}));
 
 app.use(express.static('app/public'));
 
 io.on('connection', function(socket){
-  var filteredRooms = [];
-
-  for (room in socket.adapter.rooms){
-    if (room.match(/^room/)){
-      filteredRooms.push(room);
-    }
-  }
-
-  socket.emit('roomsAvailable', { rooms: filteredRooms });
+  socket.emit('updateAvailableRooms', { rooms: filteredRooms(socket) });
 
   socket.on('hostGame', function(data){
     var roomID = 'room-' + Math.floor(Math.random() * 1000);
@@ -37,35 +29,42 @@ io.on('connection', function(socket){
     socket.join(roomID, function(){
       socket.emit('new room', { roomID: roomID });
 
-      filteredRooms.push(roomID);
-
-      socket.broadcast.emit('roomsAvailable', { rooms: filteredRooms });
-
       var game = {
         id: roomID,
-        host: socket,
         challenge: data.challengeID,
+        host: socket,
         hostName: data.playerName
       };
 
       findRoom(socket, roomID).game = game;
+
+      socket.broadcast.emit('updateAvailableRooms', { rooms: filteredRooms(socket) });
     });
   });
 
   socket.on('joinGame', function(data){
     if (findRoom(socket, data.roomID).length < 2) {
-      findRoom(socket, data.roomID).game.opponentName = data.playerName;
       socket.join(data.roomID, function(){
         var challengeID = findRoom(socket, data.roomID).game.challenge;
         var testCases = assets.testCases.JS[challengeID];
         var instructions = assets.instructions.JS[challengeID];
-        io.to(data.roomID).emit('player joined', { roomID: data.roomID, testCases: testCases, instructions: instructions });
-        io.to(data.roomID).emit('set names', { p1: findRoom(socket, data.roomID).game.hostName, p2: data.playerName });
+
+        io.to(data.roomID).emit('player joined', {
+          roomID: data.roomID,
+          testCases: testCases,
+          instructions: instructions
+        });
+
+        io.to(data.roomID).emit('set names', {
+          p1: findRoom(socket, data.roomID).game.hostName,
+          p2: data.playerName
+        });
+
+        findRoom(socket, data.roomID).game.opponentName = data.playerName;
         findRoom(socket, data.roomID).game.opponent = socket;
+
+        socket.broadcast.emit('updateAvailableRooms', { rooms: filteredRooms(socket) });
       });
-    }
-    else {
-      alert("Room is full, try another!");
     }
   });
 
@@ -85,6 +84,20 @@ http.listen(process.env.PORT || 3000, function(){
 });
 
 
+// HELPER METHODS
+
 function findRoom(socket, roomID){
   return socket.adapter.rooms[roomID];
+}
+
+function filteredRooms(socket){
+  var rooms = [];
+
+  for (room in socket.adapter.rooms){
+    if (room.match(/^room/) && findRoom(socket, room).length < 2){
+      rooms.push(room);
+    }
+  }
+
+  return rooms;
 }
