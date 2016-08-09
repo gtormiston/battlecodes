@@ -1,18 +1,56 @@
-# BATTLECODES
+# Battlecodes
+
+### What is it?
+Battlecodes is a real-time multiplayer game inspired by Codewars, where players race against each other to solve code challenges.
+
+Players can either host a new game and choose the challenge, or they can join an existing 'open' game. The first player to submit a correct solution wins the round!
+
+### Screenshots
+![Lobby and challenge selection](/screenshots/screen-1.png)
+_Lobby and challenge selection_
+
+![Syntax highlighting during gameplay](/screenshots/screen-2.png)
+_Syntax highlighting during gameplay_
+
+### Technologies Used
++ Express.js
++ Socket.io
++ Sass
++ Zombie.js
++ Mocha / Chai / Sinon
+
+### Suggested Improvements
++ User accounts
++ Timer to track best times
++ Leaderboard
++ Time penalty for incorrect submissions
++ More than 2 players in a game
++ Cheat detection
++ Host public or private games
++ League / reviews
+
 ---
 
-Live multiplayer code challenge races.
+## Getting Started
 
-## MVP
+### Prerequisites
+- [Node](https://nodejs.org/en/) (and npm)
+
+### Set Up
+1. Clone this repository
+1. `cd` into it
+1. Run `npm install`
+
+### Server
+1. Run `npm start` to start the server locally
+1. Visit [http://localhost:3000](http://localhost:3000)
+
+### Testing
+1. Run `npm test`
+
 ---
 
-- 2 player game
-- 1 challenge
-- First to pass the challenge / tests win
-
-
-### USER STORIES
----
+### User Stories
 
 ```
 As a coding student
@@ -59,19 +97,3 @@ As a coding student
 So I can play a game with suspense
 I want to see my opponent’s progress
 ```
-
-#### Additional / nice to haves:
----
-
-+ 10s countdown timer if you lose to give you a chance to finish
-+ Time penalty for an incorrect submission
-+ Efficiency of code
-+ League / reviews
-+ 2+ Players
-+ Cheat detection
-+ Scoring
-+ Sign in / homepage
-+ Multiple rooms (concurrent games)
-+ Host public or private games
-+ Handle and display submission error; currently left uncaught
-+ Syntax highlighting
