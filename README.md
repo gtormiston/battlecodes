@@ -31,6 +31,25 @@ _Syntax highlighting during gameplay_
 
 ---
 
+## Getting Started
+
+### Prerequisites
+- [Node](https://nodejs.org/en/) (and npm)
+
+### Set Up
+1. Clone this repository
+1. `cd` into it
+1. Run `npm install`
+
+### Server
+1. Run `npm start` to start the server locally
+1. Visit [http://localhost:3000](http://localhost:3000)
+
+### Testing
+1. Run `npm test`
+
+---
+
 ### User Stories
 
 ```
